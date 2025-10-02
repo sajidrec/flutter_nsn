@@ -1,0 +1,29 @@
+import 'package:get/get.dart';
+import 'package:nsn/app/modules/login_page/presentation/binding/login_page_binding.dart';
+import 'package:nsn/app/modules/login_page/presentation/views/login_page.dart';
+import 'package:nsn/app/modules/signup_page/presentation/binding/signup_page_binding.dart';
+import 'package:nsn/app/modules/signup_page/presentation/views/signup_page.dart';
+import 'package:nsn/app/modules/signup_page/presentation/views/welcome_signup_page.dart';
+import 'package:nsn/app/modules/splash_page/presentation/views/splash_page.dart';
+import 'app_routes.dart';
+
+class AppPages {
+  static final List<GetPage> pages = [
+    GetPage(name: AppRoutes.splashRoute, page: () => SplashPage()),
+    GetPage(
+      name: AppRoutes.loginRoute,
+      page: () => LoginPage(),
+      binding: LoginPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.signUpRoute,
+      page: () => SignupPage(),
+      binding: SignupPageBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.signUpWelcomeRoute,
+      page: () => WelcomeSignupPage(),
+    ),
+  ];
+}
