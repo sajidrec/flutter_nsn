@@ -65,18 +65,21 @@ class _SignupPageState extends State<SignupPage> {
                       tec: _nameTEC,
                       hintText: "name",
                       iconPath: AppAssets.personIcon,
+                      isPasswordTextField: false,
                     ),
                     SizedBox(height: 16.h),
                     TextFieldWidget(
                       tec: _emailTEC,
                       hintText: "email or phone number",
                       iconPath: AppAssets.emailIcon,
+                      isPasswordTextField: false,
                     ),
                     SizedBox(height: 16.h),
                     TextFieldWidget(
                       tec: _passTEC,
                       hintText: "Password",
                       iconPath: AppAssets.lockIcon,
+                      isPasswordTextField: true,
                     ),
                     SizedBox(height: 12.h),
                     Row(

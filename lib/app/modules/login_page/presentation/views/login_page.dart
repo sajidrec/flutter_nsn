@@ -66,12 +66,14 @@ class _LoginPageState extends State<LoginPage> {
                       tec: _emailTEC,
                       hintText: "User name or email",
                       iconPath: AppAssets.emailIcon,
+                      isPasswordTextField: false,
                     ),
                     SizedBox(height: 16.h),
                     TextFieldWidget(
                       tec: _passTEC,
                       hintText: "Password",
                       iconPath: AppAssets.lockIcon,
+                      isPasswordTextField: true,
                     ),
                     SizedBox(height: 12.h),
 
