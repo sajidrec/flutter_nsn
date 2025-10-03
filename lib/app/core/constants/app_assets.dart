@@ -13,4 +13,10 @@ class AppAssets {
   static const String myListIcon = "assets/icons/my_list_icon.svg";
   static const String myProfileIcon = "assets/icons/my_profile_icon.svg";
   static const String homeIcon = "assets/icons/home_icon.svg";
+  static const String homeIconFilled = "assets/icons/home_filled_icon.svg";
+  static const String myListIconFilled = "assets/icons/my_list_filled_icon.svg";
+  static const String bountiesIconFilled =
+      "assets/icons/bounties_filled_icon.svg";
+  static const String myProfileIconFilled =
+      "assets/icons/my_profile_filled_icon.svg";
 }

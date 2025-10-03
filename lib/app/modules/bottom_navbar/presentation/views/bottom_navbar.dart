@@ -26,14 +26,16 @@ class BottomNavbar extends StatelessWidget {
               unselectedLabelStyle: GoogleFonts.inter(
                 color: AppColors.checkboxColor,
               ),
-              selectedItemColor: AppColors.greenButtonBG,
+              selectedItemColor: AppColors.blackText,
 
               type: BottomNavigationBarType.fixed,
               backgroundColor: Colors.white,
               items: [
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    AppAssets.homeIcon,
+                    controller.currentIndex == 0
+                        ? AppAssets.homeIconFilled
+                        : AppAssets.homeIcon,
                     width: 32.w,
                     height: 32.h,
                   ),
@@ -41,7 +43,9 @@ class BottomNavbar extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    AppAssets.myListIcon,
+                    controller.currentIndex == 1
+                        ? AppAssets.myListIconFilled
+                        : AppAssets.myListIcon,
                     width: 32.w,
                     height: 32.h,
                   ),
@@ -49,7 +53,9 @@ class BottomNavbar extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    AppAssets.bountiesIcon,
+                    controller.currentIndex == 2
+                        ? AppAssets.bountiesIconFilled
+                        : AppAssets.bountiesIcon,
                     width: 32.w,
                     height: 32.h,
                   ),
@@ -57,7 +63,9 @@ class BottomNavbar extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset(
-                    AppAssets.myProfileIcon,
+                    controller.currentIndex == 3
+                        ? AppAssets.myProfileIconFilled
+                        : AppAssets.myProfileIcon,
                     width: 32.w,
                     height: 32.h,
                   ),
