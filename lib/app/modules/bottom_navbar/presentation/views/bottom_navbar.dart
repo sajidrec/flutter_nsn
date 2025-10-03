@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hugeicons/hugeicons.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
 import 'package:nsn/app/core/constants/app_colors.dart';
 
@@ -20,7 +19,10 @@ class BottomNavbar extends StatelessWidget {
           return Scaffold(
             body: controller.pages[controller.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
-              selectedLabelStyle: GoogleFonts.inter(color: AppColors.blackText),
+              selectedLabelStyle: GoogleFonts.inter(
+                color: AppColors.blackText,
+                fontWeight: FontWeight.w600,
+              ),
               unselectedLabelStyle: GoogleFonts.inter(
                 color: AppColors.checkboxColor,
               ),
@@ -30,10 +32,10 @@ class BottomNavbar extends StatelessWidget {
               backgroundColor: Colors.white,
               items: [
                 BottomNavigationBarItem(
-                  icon: HugeIcon(
-                    icon: HugeIcons.strokeRoundedHome01,
-                    size: 32.sp,
-                    color: AppColors.semiGreenPinPutBG,
+                  icon: SvgPicture.asset(
+                    AppAssets.homeIcon,
+                    width: 32.w,
+                    height: 32.h,
                   ),
                   label: "Home",
                 ),

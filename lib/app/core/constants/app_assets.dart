@@ -12,4 +12,5 @@ class AppAssets {
   static const String bountiesIcon = "assets/icons/bounties.svg";
   static const String myListIcon = "assets/icons/my_list_icon.svg";
   static const String myProfileIcon = "assets/icons/my_profile_icon.svg";
+  static const String homeIcon = "assets/icons/home_icon.svg";
 }
