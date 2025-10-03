@@ -8,4 +8,5 @@ class AppAssets {
   static const String welcomeNSNFinder = "assets/images/welcome_nsn_finder.svg";
   static const String verificationPageMessage =
       "assets/images/verification_page_message.svg";
+  static const String resetPageTxt = "assets/images/reset_page_txt.svg";
 }

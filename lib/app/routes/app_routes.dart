@@ -5,4 +5,5 @@ abstract class AppRoutes {
   static const String signUpWelcomeRoute = '/signUpWelcomeRoute';
   static const String forgetPassRoute = '/forgetPassRoute';
   static const String verificationCodeRoute = '/verificationCodeRoute';
+  static const String resetPassRoute = '/resetPassRoute';
 }

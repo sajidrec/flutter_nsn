@@ -3,12 +3,14 @@ import 'package:nsn/app/modules/forget_password_page/binding/forget_password_bin
 import 'package:nsn/app/modules/forget_password_page/views/forget_password_page.dart';
 import 'package:nsn/app/modules/login_page/presentation/binding/login_page_binding.dart';
 import 'package:nsn/app/modules/login_page/presentation/views/login_page.dart';
+import 'package:nsn/app/modules/reset_password_page/presentation/views/reset_password_page.dart';
 import 'package:nsn/app/modules/signup_page/presentation/binding/signup_page_binding.dart';
 import 'package:nsn/app/modules/signup_page/presentation/views/signup_page.dart';
 import 'package:nsn/app/modules/signup_page/presentation/views/welcome_signup_page.dart';
 import 'package:nsn/app/modules/splash_page/presentation/views/splash_page.dart';
 import 'package:nsn/app/modules/verification_code_page/presentation/binding/verification_code_page_binding.dart';
 import 'package:nsn/app/modules/verification_code_page/presentation/view/verification_code_page.dart';
+import '../modules/reset_password_page/presentation/binding/reset_password_page_binding.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -38,6 +40,11 @@ class AppPages {
       name: AppRoutes.verificationCodeRoute,
       page: () => VerificationCodePage(),
       binding: VerificationCodePageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.resetPassRoute,
+      page: () => ResetPasswordPage(),
+      binding: ResetPasswordPageBinding(),
     ),
   ];
 }
