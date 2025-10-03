@@ -19,4 +19,6 @@ class AppAssets {
       "assets/icons/bounties_filled_icon.svg";
   static const String myProfileIconFilled =
       "assets/icons/my_profile_filled_icon.svg";
+  static const String searchIcon = "assets/icons/search_icon.svg";
+  static const String searchButton = "assets/icons/search_button.svg";
 }
