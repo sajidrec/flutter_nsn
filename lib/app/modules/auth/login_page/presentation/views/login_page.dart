@@ -137,8 +137,10 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 24.h),
 
                       GreenButtonFullSizedWidget(
-                        buttonText: "Sing In",
-                        callbackFunction: () {},
+                        buttonText: "Sign In",
+                        callbackFunction: () {
+                          Get.offAllNamed(AppRoutes.bottomNavbarRoute);
+                        },
                       ),
 
                       SizedBox(height: 24.h),

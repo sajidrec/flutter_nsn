@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:nsn/app/modules/bottom_navbar/presentation/binding/bottom_navbar_binding.dart';
+import 'package:nsn/app/modules/bottom_navbar/presentation/views/bottom_navbar.dart';
 import '../modules/auth/forget_password_page/binding/forget_password_binding.dart';
 import '../modules/auth/forget_password_page/views/forget_password_page.dart';
 import '../modules/auth/login_page/presentation/binding/login_page_binding.dart';
@@ -45,6 +47,11 @@ class AppPages {
       name: AppRoutes.resetPassRoute,
       page: () => ResetPasswordPage(),
       binding: ResetPasswordPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.bottomNavbarRoute,
+      page: () => BottomNavbar(),
+      binding: BottomNavbarBinding(),
     ),
   ];
 }

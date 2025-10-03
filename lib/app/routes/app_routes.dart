@@ -6,4 +6,5 @@ abstract class AppRoutes {
   static const String forgetPassRoute = '/forgetPassRoute';
   static const String verificationCodeRoute = '/verificationCodeRoute';
   static const String resetPassRoute = '/resetPassRoute';
+  static const String bottomNavbarRoute = '/bottomNavbarRoute';
 }
