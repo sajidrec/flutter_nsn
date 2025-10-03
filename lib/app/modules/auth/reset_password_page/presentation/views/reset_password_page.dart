@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
 
-import '../../../../routes/app_routes.dart';
+import '../../../../../routes/app_routes.dart';
 import '../controllers/reset_password_page_controller.dart';
 import '../widgets/reset_page_text_form_field_widget.dart';
 

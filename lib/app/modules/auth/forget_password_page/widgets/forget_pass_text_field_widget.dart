@@ -3,12 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nsn/app/core/constants/regex_constants.dart';
 
 import '../../../../core/constants/app_colors.dart';
-import '../controllers/reset_password_page_controller.dart';
+import '../controllers/forget_password_page_controller.dart';
 
-class ResetPageTextFormFieldWidget extends StatefulWidget {
-  const ResetPageTextFormFieldWidget({
+class ForgetPassTextFieldWidget extends StatefulWidget {
+  const ForgetPassTextFieldWidget({
     super.key,
     required this.tec,
     required this.iconPath,
@@ -22,29 +23,25 @@ class ResetPageTextFormFieldWidget extends StatefulWidget {
   final bool isPasswordTextField;
 
   @override
-  State<ResetPageTextFormFieldWidget> createState() =>
-      _ResetPageTextFormFieldWidgetState();
+  State<ForgetPassTextFieldWidget> createState() =>
+      _ForgetPassTextFieldWidgetState();
 }
 
-class _ResetPageTextFormFieldWidgetState
-    extends State<ResetPageTextFormFieldWidget> {
+class _ForgetPassTextFieldWidgetState extends State<ForgetPassTextFieldWidget> {
   bool hidePassword = false;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ResetPasswordPageController>(
+    return GetBuilder<ForgetPasswordPageController>(
       builder: (controller) {
-        if (!controller.fieldEmptyMap.containsKey(widget.tec)) {
-          controller.registerField(widget.tec);
-        }
         return TextFormField(
           controller: widget.tec,
           obscureText: hidePassword,
           onChanged: (value) {
-            if (value.isEmpty) {
-              controller.setFieldEmpty(widget.tec, true);
+            if (!RegexConstants.email.hasMatch(value)) {
+              controller.setDisabledButton(true);
             } else {
-              controller.setFieldEmpty(widget.tec, false);
+              controller.setDisabledButton(false);
             }
           },
           decoration: InputDecoration(

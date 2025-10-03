@@ -5,10 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
 import 'package:nsn/app/core/constants/app_colors.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
-import 'package:nsn/app/modules/forget_password_page/controllers/forget_password_page_controller.dart';
-import 'package:nsn/app/modules/forget_password_page/widgets/forget_pass_text_field_widget.dart';
 
-import '../../../routes/app_routes.dart';
+import '../../../../routes/app_routes.dart';
+import '../controllers/forget_password_page_controller.dart';
+import '../widgets/forget_pass_text_field_widget.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   const ForgetPasswordPage({super.key});

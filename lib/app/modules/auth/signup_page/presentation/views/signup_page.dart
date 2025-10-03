@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
 import 'package:nsn/app/core/constants/app_colors.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
-import 'package:nsn/app/modules/login_page/presentation/controllers/login_page_controller.dart';
+import 'package:get/get.dart';
 import 'package:nsn/app/routes/app_routes.dart';
 
-import '../../../../global_widgets/text_field_widget.dart';
+import '../../../../../global_widgets/text_field_widget.dart';
+import '../controller/signup_page_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final TextEditingController _nameTEC = TextEditingController();
   final TextEditingController _emailTEC = TextEditingController();
   final TextEditingController _passTEC = TextEditingController();
 
   @override
   void dispose() {
+    _nameTEC.dispose();
     _emailTEC.dispose();
     _passTEC.dispose();
     super.dispose();
@@ -39,33 +41,37 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 29.h),
+              SizedBox(height: 54.h),
+
               Center(
-                child: Image.asset(
-                  AppAssets.appLogo,
-                  width: 143.w,
-                  height: 144.h,
+                child: Text(
+                  "Create An Account",
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 24.sp,
+                    color: AppColors.semiBlackTextColor,
+                  ),
                 ),
               ),
-              SizedBox(height: 47.h),
-              Text(
-                "Sign In Your Account",
-                style: GoogleFonts.inter(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff505050),
-                ),
-              ),
+
               SizedBox(height: 24.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.w),
-                child: Form(
-                  key: _formKey,
+
+              Form(
+                key: _formKey,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: Column(
                     children: [
                       TextFieldWidget(
+                        tec: _nameTEC,
+                        hintText: "name",
+                        iconPath: AppAssets.personIcon,
+                        isPasswordTextField: false,
+                      ),
+                      SizedBox(height: 16.h),
+                      TextFieldWidget(
                         tec: _emailTEC,
-                        hintText: "User name or email",
+                        hintText: "email or phone number",
                         iconPath: AppAssets.emailIcon,
                         isPasswordTextField: false,
                       ),
@@ -77,7 +83,6 @@ class _LoginPageState extends State<LoginPage> {
                         isPasswordTextField: true,
                       ),
                       SizedBox(height: 12.h),
-
                       Row(
                         children: [
                           SizedBox(
@@ -85,12 +90,12 @@ class _LoginPageState extends State<LoginPage> {
                             height: 16.h,
                             child: Transform.scale(
                               scale: 16.67.w / 24,
-                              child: GetBuilder<LoginPageController>(
+                              child: GetBuilder<SignupPageController>(
                                 builder: (controller) {
                                   return Checkbox(
-                                    value: controller.rememberMe,
+                                    value: controller.userAgreed,
                                     onChanged: (value) {
-                                      controller.toggleRememberMe();
+                                      controller.toggleUserAgree();
                                     },
                                     side: BorderSide(
                                       color: AppColors.checkboxColor,
@@ -99,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                                       borderRadius: BorderRadius.circular(4.r),
                                     ),
                                     checkColor: AppColors.bgWhite,
-                                    fillColor: controller.rememberMe
+                                    fillColor: controller.userAgreed
                                         ? WidgetStatePropertyAll(
                                             AppColors.greenButtonBG,
                                           )
@@ -111,34 +116,34 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            "Remainder me",
+                            "I agree to the ",
                             style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w400,
                               fontSize: 14.sp,
                               color: AppColors.checkboxColor,
                             ),
                           ),
-                          Spacer(),
                           InkWell(
-                            onTap: () {
-                              Get.toNamed(AppRoutes.forgetPassRoute);
-                            },
+                            onTap: () {},
                             child: Text(
-                              "Forget password?",
+                              "Terms & Condition",
                               style: GoogleFonts.inter(
-                                fontWeight: FontWeight.w400,
                                 fontSize: 14.sp,
-                                color: AppColors.blackText,
+                                color: AppColors.semiBlackTextColor,
+                                decoration: TextDecoration.underline,
+                                decorationColor: AppColors.semiBlackTextColor,
                               ),
                             ),
                           ),
                         ],
                       ),
+
                       SizedBox(height: 24.h),
 
                       GreenButtonFullSizedWidget(
-                        buttonText: "Sing In",
-                        callbackFunction: () {},
+                        buttonText: "Create Account",
+                        callbackFunction: () {
+                          Get.offAllNamed(AppRoutes.signUpWelcomeRoute);
+                        },
                       ),
 
                       SizedBox(height: 24.h),
@@ -168,17 +173,17 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Don’t haven an account?",
+                            "Already a member?",
                             style: GoogleFonts.inter(
                               color: AppColors.checkboxColor,
                             ),
                           ),
                           InkWell(
                             onTap: () {
-                              Get.toNamed(AppRoutes.signUpRoute);
+                              Get.back();
                             },
                             child: Text(
-                              " Sign Up",
+                              " Sign In",
                               style: GoogleFonts.inter(
                                 color: AppColors.greenButtonBG,
                               ),

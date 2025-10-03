@@ -5,14 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/constants/app_colors.dart';
 
 class GreenButtonFullSizedWidget extends StatelessWidget {
-  GreenButtonFullSizedWidget({
+  const GreenButtonFullSizedWidget({
     super.key,
     required this.buttonText,
     this.callbackFunction,
   });
 
   final String buttonText;
-  VoidCallback? callbackFunction;
+  final VoidCallback? callbackFunction;
 
   @override
   Widget build(BuildContext context) {

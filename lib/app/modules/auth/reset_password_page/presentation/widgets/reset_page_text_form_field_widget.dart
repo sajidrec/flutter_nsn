@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nsn/app/core/constants/regex_constants.dart';
-import 'package:nsn/app/modules/forget_password_page/controllers/forget_password_page_controller.dart';
-import '../../../core/constants/app_colors.dart';
 
-class ForgetPassTextFieldWidget extends StatefulWidget {
-  const ForgetPassTextFieldWidget({
+import '../../../../../core/constants/app_colors.dart';
+import '../controllers/reset_password_page_controller.dart';
+
+class ResetPageTextFormFieldWidget extends StatefulWidget {
+  const ResetPageTextFormFieldWidget({
     super.key,
     required this.tec,
     required this.iconPath,
@@ -22,25 +22,29 @@ class ForgetPassTextFieldWidget extends StatefulWidget {
   final bool isPasswordTextField;
 
   @override
-  State<ForgetPassTextFieldWidget> createState() =>
-      _ForgetPassTextFieldWidgetState();
+  State<ResetPageTextFormFieldWidget> createState() =>
+      _ResetPageTextFormFieldWidgetState();
 }
 
-class _ForgetPassTextFieldWidgetState extends State<ForgetPassTextFieldWidget> {
+class _ResetPageTextFormFieldWidgetState
+    extends State<ResetPageTextFormFieldWidget> {
   bool hidePassword = false;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ForgetPasswordPageController>(
+    return GetBuilder<ResetPasswordPageController>(
       builder: (controller) {
+        if (!controller.fieldEmptyMap.containsKey(widget.tec)) {
+          controller.registerField(widget.tec);
+        }
         return TextFormField(
           controller: widget.tec,
           obscureText: hidePassword,
           onChanged: (value) {
-            if (!RegexConstants.email.hasMatch(value)) {
-              controller.setDisabledButton(true);
+            if (value.isEmpty) {
+              controller.setFieldEmpty(widget.tec, true);
             } else {
-              controller.setDisabledButton(false);
+              controller.setFieldEmpty(widget.tec, false);
             }
           },
           decoration: InputDecoration(
