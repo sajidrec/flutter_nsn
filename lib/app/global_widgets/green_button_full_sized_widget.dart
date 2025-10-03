@@ -5,14 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/constants/app_colors.dart';
 
 class GreenButtonFullSizedWidget extends StatelessWidget {
-  const GreenButtonFullSizedWidget({
+  GreenButtonFullSizedWidget({
     super.key,
     required this.buttonText,
-    required this.callbackFunction,
+    this.callbackFunction,
   });
 
   final String buttonText;
-  final VoidCallback callbackFunction;
+  VoidCallback? callbackFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,13 @@ class GreenButtonFullSizedWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.r),
           ),
+          disabledBackgroundColor: AppColors.disabledBG,
+          disabledForegroundColor: AppColors.disabledGreenTextColor,
+          foregroundColor: AppColors.bgWhite,
         ),
         child: Text(
           buttonText,
           style: GoogleFonts.inter(
-            color: AppColors.bgWhite,
             fontWeight: FontWeight.w500,
             fontSize: 16.sp,
           ),

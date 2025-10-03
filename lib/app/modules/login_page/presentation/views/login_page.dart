@@ -119,7 +119,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         Spacer(),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(AppRoutes.forgetPassRoute);
+                          },
                           child: Text(
                             "Forget password?",
                             style: GoogleFonts.inter(

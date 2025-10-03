@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:nsn/app/modules/forget_password_page/binding/forget_password_binding.dart';
+import 'package:nsn/app/modules/forget_password_page/views/forget_password_page.dart';
 import 'package:nsn/app/modules/login_page/presentation/binding/login_page_binding.dart';
 import 'package:nsn/app/modules/login_page/presentation/views/login_page.dart';
 import 'package:nsn/app/modules/signup_page/presentation/binding/signup_page_binding.dart';
@@ -24,6 +26,12 @@ class AppPages {
     GetPage(
       name: AppRoutes.signUpWelcomeRoute,
       page: () => WelcomeSignupPage(),
+    ),
+
+    GetPage(
+      name: AppRoutes.forgetPassRoute,
+      page: () => ForgetPasswordPage(),
+      binding: ForgetPasswordBinding(),
     ),
   ];
 }
