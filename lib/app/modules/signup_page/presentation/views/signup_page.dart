@@ -37,164 +37,166 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 54.h),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 54.h),
 
-            Center(
-              child: Text(
-                "Create An Account",
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24.sp,
-                  color: AppColors.semiBlackTextColor,
+              Center(
+                child: Text(
+                  "Create An Account",
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 24.sp,
+                    color: AppColors.semiBlackTextColor,
+                  ),
                 ),
               ),
-            ),
 
-            SizedBox(height: 24.h),
+              SizedBox(height: 24.h),
 
-            Form(
-              key: _formKey,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.w),
-                child: Column(
-                  children: [
-                    TextFieldWidget(
-                      tec: _nameTEC,
-                      hintText: "name",
-                      iconPath: AppAssets.personIcon,
-                      isPasswordTextField: false,
-                    ),
-                    SizedBox(height: 16.h),
-                    TextFieldWidget(
-                      tec: _emailTEC,
-                      hintText: "email or phone number",
-                      iconPath: AppAssets.emailIcon,
-                      isPasswordTextField: false,
-                    ),
-                    SizedBox(height: 16.h),
-                    TextFieldWidget(
-                      tec: _passTEC,
-                      hintText: "Password",
-                      iconPath: AppAssets.lockIcon,
-                      isPasswordTextField: true,
-                    ),
-                    SizedBox(height: 12.h),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 16.w,
-                          height: 16.h,
-                          child: Transform.scale(
-                            scale: 16.67.w / 24,
-                            child: GetBuilder<SignupPageController>(
-                              builder: (controller) {
-                                return Checkbox(
-                                  value: controller.userAgreed,
-                                  onChanged: (value) {
-                                    controller.toggleUserAgree();
-                                  },
-                                  side: BorderSide(
-                                    color: AppColors.checkboxColor,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4.r),
-                                  ),
-                                  checkColor: AppColors.bgWhite,
-                                  fillColor: controller.userAgreed
-                                      ? WidgetStatePropertyAll(
-                                          AppColors.greenButtonBG,
-                                        )
-                                      : null,
-                                );
-                              },
+              Form(
+                key: _formKey,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12.w),
+                  child: Column(
+                    children: [
+                      TextFieldWidget(
+                        tec: _nameTEC,
+                        hintText: "name",
+                        iconPath: AppAssets.personIcon,
+                        isPasswordTextField: false,
+                      ),
+                      SizedBox(height: 16.h),
+                      TextFieldWidget(
+                        tec: _emailTEC,
+                        hintText: "email or phone number",
+                        iconPath: AppAssets.emailIcon,
+                        isPasswordTextField: false,
+                      ),
+                      SizedBox(height: 16.h),
+                      TextFieldWidget(
+                        tec: _passTEC,
+                        hintText: "Password",
+                        iconPath: AppAssets.lockIcon,
+                        isPasswordTextField: true,
+                      ),
+                      SizedBox(height: 12.h),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 16.w,
+                            height: 16.h,
+                            child: Transform.scale(
+                              scale: 16.67.w / 24,
+                              child: GetBuilder<SignupPageController>(
+                                builder: (controller) {
+                                  return Checkbox(
+                                    value: controller.userAgreed,
+                                    onChanged: (value) {
+                                      controller.toggleUserAgree();
+                                    },
+                                    side: BorderSide(
+                                      color: AppColors.checkboxColor,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4.r),
+                                    ),
+                                    checkColor: AppColors.bgWhite,
+                                    fillColor: controller.userAgreed
+                                        ? WidgetStatePropertyAll(
+                                            AppColors.greenButtonBG,
+                                          )
+                                        : null,
+                                  );
+                                },
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "I agree to the ",
-                          style: GoogleFonts.inter(
-                            fontSize: 14.sp,
-                            color: AppColors.checkboxColor,
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {},
-                          child: Text(
-                            "Terms & Condition",
+                          SizedBox(width: 8.w),
+                          Text(
+                            "I agree to the ",
                             style: GoogleFonts.inter(
                               fontSize: 14.sp,
-                              color: AppColors.semiBlackTextColor,
-                              decoration: TextDecoration.underline,
-                              decorationColor: AppColors.semiBlackTextColor,
+                              color: AppColors.checkboxColor,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    GreenButtonFullSizedWidget(
-                      buttonText: "Create Account",
-                      callbackFunction: () {
-                        Get.offAllNamed(AppRoutes.signUpWelcomeRoute);
-                      },
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    Text(
-                      "Or sing in with",
-                      style: GoogleFonts.inter(
-                        color: AppColors.greyTextColor,
-                        fontSize: 14.sp,
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    SizedBox(
-                      height: 56.w,
-                      width: 56.h,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(AppAssets.googleButton),
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Already a member?",
-                          style: GoogleFonts.inter(
-                            color: AppColors.checkboxColor,
+                          InkWell(
+                            onTap: () {},
+                            child: Text(
+                              "Terms & Condition",
+                              style: GoogleFonts.inter(
+                                fontSize: 14.sp,
+                                color: AppColors.semiBlackTextColor,
+                                decoration: TextDecoration.underline,
+                                decorationColor: AppColors.semiBlackTextColor,
+                              ),
+                            ),
                           ),
+                        ],
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      GreenButtonFullSizedWidget(
+                        buttonText: "Create Account",
+                        callbackFunction: () {
+                          Get.offAllNamed(AppRoutes.signUpWelcomeRoute);
+                        },
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      Text(
+                        "Or sing in with",
+                        style: GoogleFonts.inter(
+                          color: AppColors.greyTextColor,
+                          fontSize: 14.sp,
                         ),
-                        InkWell(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Text(
-                            " Sign In",
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      SizedBox(
+                        height: 56.w,
+                        width: 56.h,
+                        child: InkWell(
+                          onTap: () {},
+                          child: SvgPicture.asset(AppAssets.googleButton),
+                        ),
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already a member?",
                             style: GoogleFonts.inter(
-                              color: AppColors.greenButtonBG,
+                              color: AppColors.checkboxColor,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          InkWell(
+                            onTap: () {
+                              Get.back();
+                            },
+                            child: Text(
+                              " Sign In",
+                              style: GoogleFonts.inter(
+                                color: AppColors.greenButtonBG,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

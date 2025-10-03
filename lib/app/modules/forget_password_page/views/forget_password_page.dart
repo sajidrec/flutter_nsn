@@ -8,6 +8,8 @@ import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
 import 'package:nsn/app/modules/forget_password_page/controllers/forget_password_page_controller.dart';
 import 'package:nsn/app/modules/forget_password_page/widgets/forget_pass_text_field_widget.dart';
 
+import '../../../routes/app_routes.dart';
+
 class ForgetPasswordPage extends StatefulWidget {
   const ForgetPasswordPage({super.key});
 
@@ -28,54 +30,60 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            SizedBox(height: 131.h),
-            Center(
-              child: Text(
-                "Forget Password",
-                style: GoogleFonts.inter(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.semiBlackTextColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 131.h),
+              Center(
+                child: Text(
+                  "Forget Password",
+                  style: GoogleFonts.inter(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.semiBlackTextColor,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 65.w),
-              child: Text(
-                "Reset your account password and access your personal account again",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.greyTextColor,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 65.w),
+                child: Text(
+                  "Reset your account password and access your personal account again",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.greyTextColor,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 24.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
-              child: ForgetPassTextFieldWidget(
-                tec: _forgetPassTec,
-                iconPath: AppAssets.emailIcon,
-                hintText: "Enter your email",
-                isPasswordTextField: false,
+              SizedBox(height: 24.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: ForgetPassTextFieldWidget(
+                  tec: _forgetPassTec,
+                  iconPath: AppAssets.emailIcon,
+                  hintText: "Enter your email",
+                  isPasswordTextField: false,
+                ),
               ),
-            ),
-            SizedBox(height: 375.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
-              child: GetBuilder<ForgetPasswordPageController>(
-                builder: (controller) {
-                  return GreenButtonFullSizedWidget(
-                    buttonText: "Next",
-                    callbackFunction: controller.disableButton ? null : () {},
-                  );
-                },
+              SizedBox(height: 375.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: GetBuilder<ForgetPasswordPageController>(
+                  builder: (controller) {
+                    return GreenButtonFullSizedWidget(
+                      buttonText: "Next",
+                      callbackFunction: controller.disableButton
+                          ? null
+                          : () {
+                              Get.toNamed(AppRoutes.verificationCodeRoute);
+                            },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

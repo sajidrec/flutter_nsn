@@ -6,4 +6,6 @@ class AppAssets {
   static const String googleButton = "assets/icons/google_icon_button.svg";
   static const String personIcon = "assets/icons/person_icon.svg";
   static const String welcomeNSNFinder = "assets/images/welcome_nsn_finder.svg";
+  static const String verificationPageMessage =
+      "assets/images/verification_page_message.svg";
 }

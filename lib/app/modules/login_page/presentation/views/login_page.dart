@@ -35,161 +35,163 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 29.h),
-            Center(
-              child: Image.asset(
-                AppAssets.appLogo,
-                width: 143.w,
-                height: 144.h,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 29.h),
+              Center(
+                child: Image.asset(
+                  AppAssets.appLogo,
+                  width: 143.w,
+                  height: 144.h,
+                ),
               ),
-            ),
-            SizedBox(height: 47.h),
-            Text(
-              "Sign In Your Account",
-              style: GoogleFonts.inter(
-                fontSize: 24.sp,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff505050),
+              SizedBox(height: 47.h),
+              Text(
+                "Sign In Your Account",
+                style: GoogleFonts.inter(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff505050),
+                ),
               ),
-            ),
-            SizedBox(height: 24.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFieldWidget(
-                      tec: _emailTEC,
-                      hintText: "User name or email",
-                      iconPath: AppAssets.emailIcon,
-                      isPasswordTextField: false,
-                    ),
-                    SizedBox(height: 16.h),
-                    TextFieldWidget(
-                      tec: _passTEC,
-                      hintText: "Password",
-                      iconPath: AppAssets.lockIcon,
-                      isPasswordTextField: true,
-                    ),
-                    SizedBox(height: 12.h),
+              SizedBox(height: 24.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      TextFieldWidget(
+                        tec: _emailTEC,
+                        hintText: "User name or email",
+                        iconPath: AppAssets.emailIcon,
+                        isPasswordTextField: false,
+                      ),
+                      SizedBox(height: 16.h),
+                      TextFieldWidget(
+                        tec: _passTEC,
+                        hintText: "Password",
+                        iconPath: AppAssets.lockIcon,
+                        isPasswordTextField: true,
+                      ),
+                      SizedBox(height: 12.h),
 
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 16.w,
-                          height: 16.h,
-                          child: Transform.scale(
-                            scale: 16.67.w / 24,
-                            child: GetBuilder<LoginPageController>(
-                              builder: (controller) {
-                                return Checkbox(
-                                  value: controller.rememberMe,
-                                  onChanged: (value) {
-                                    controller.toggleRememberMe();
-                                  },
-                                  side: BorderSide(
-                                    color: AppColors.checkboxColor,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4.r),
-                                  ),
-                                  checkColor: AppColors.bgWhite,
-                                  fillColor: controller.rememberMe
-                                      ? WidgetStatePropertyAll(
-                                          AppColors.greenButtonBG,
-                                        )
-                                      : null,
-                                );
-                              },
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 16.w,
+                            height: 16.h,
+                            child: Transform.scale(
+                              scale: 16.67.w / 24,
+                              child: GetBuilder<LoginPageController>(
+                                builder: (controller) {
+                                  return Checkbox(
+                                    value: controller.rememberMe,
+                                    onChanged: (value) {
+                                      controller.toggleRememberMe();
+                                    },
+                                    side: BorderSide(
+                                      color: AppColors.checkboxColor,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4.r),
+                                    ),
+                                    checkColor: AppColors.bgWhite,
+                                    fillColor: controller.rememberMe
+                                        ? WidgetStatePropertyAll(
+                                            AppColors.greenButtonBG,
+                                          )
+                                        : null,
+                                  );
+                                },
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "Remainder me",
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14.sp,
-                            color: AppColors.checkboxColor,
-                          ),
-                        ),
-                        Spacer(),
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed(AppRoutes.forgetPassRoute);
-                          },
-                          child: Text(
-                            "Forget password?",
+                          SizedBox(width: 8.w),
+                          Text(
+                            "Remainder me",
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w400,
                               fontSize: 14.sp,
-                              color: AppColors.blackText,
+                              color: AppColors.checkboxColor,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 24.h),
-
-                    GreenButtonFullSizedWidget(
-                      buttonText: "Sing In",
-                      callbackFunction: () {},
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    Text(
-                      "Or sing in with",
-                      style: GoogleFonts.inter(
-                        color: AppColors.greyTextColor,
-                        fontSize: 14.sp,
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    SizedBox(
-                      height: 56.w,
-                      width: 56.h,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(AppAssets.googleButton),
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don’t haven an account?",
-                          style: GoogleFonts.inter(
-                            color: AppColors.checkboxColor,
+                          Spacer(),
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(AppRoutes.forgetPassRoute);
+                            },
+                            child: Text(
+                              "Forget password?",
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
+                                color: AppColors.blackText,
+                              ),
+                            ),
                           ),
+                        ],
+                      ),
+                      SizedBox(height: 24.h),
+
+                      GreenButtonFullSizedWidget(
+                        buttonText: "Sing In",
+                        callbackFunction: () {},
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      Text(
+                        "Or sing in with",
+                        style: GoogleFonts.inter(
+                          color: AppColors.greyTextColor,
+                          fontSize: 14.sp,
                         ),
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed(AppRoutes.signUpRoute);
-                          },
-                          child: Text(
-                            " Sign Up",
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      SizedBox(
+                        height: 56.w,
+                        width: 56.h,
+                        child: InkWell(
+                          onTap: () {},
+                          child: SvgPicture.asset(AppAssets.googleButton),
+                        ),
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Don’t haven an account?",
                             style: GoogleFonts.inter(
-                              color: AppColors.greenButtonBG,
+                              color: AppColors.checkboxColor,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(AppRoutes.signUpRoute);
+                            },
+                            child: Text(
+                              " Sign Up",
+                              style: GoogleFonts.inter(
+                                color: AppColors.greenButtonBG,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -10,4 +10,6 @@ class AppColors {
   static const Color semiBlackTextColor = Color(0xff505050);
   static const Color disabledBG = Color(0xffD0DBD4);
   static const Color disabledGreenTextColor = Color(0xff9AAAA0);
+  static const Color semiGreenPinPutBG = Color(0xffB9CAC0);
+  static const Color pinputBorderGreen = Color(0xff196843);
 }
