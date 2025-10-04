@@ -62,6 +62,10 @@ class SearchResultElementWidget extends StatelessWidget {
               ),
               onSelected: (value) {
                 print("menu selected item: $value");
+
+                if (value == 'select multiple') {
+                  //   TODO: work on select multiples
+                }
               },
               itemBuilder: (context) => [
                 PopupMenuItem(

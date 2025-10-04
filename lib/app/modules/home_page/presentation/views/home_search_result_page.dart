@@ -214,7 +214,7 @@ class HomeSearchResultPage extends StatelessWidget {
                         ),
                         separatorBuilder: (context, index) =>
                             SizedBox(height: 16.h),
-                        itemCount: 20,
+                        itemCount: 10,
                       ),
                     ),
                   ),
