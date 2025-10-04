@@ -26,4 +26,9 @@ class AppAssets {
   static const String filterIcon = "assets/icons/filter_icon.svg";
   static const String imageIcon = "assets/icons/image_icon.svg";
   static const String optionIcon = "assets/icons/option_icon.svg";
+  static const String add_to_my_list_icon =
+      "assets/icons/add_to_my_list_icon.svg";
+  static const String new_bounties_icon = "assets/icons/new_bounties_icon.svg";
+  static const String select_multiple_icon =
+      "assets/icons/select_multiple_icon.svg";
 }

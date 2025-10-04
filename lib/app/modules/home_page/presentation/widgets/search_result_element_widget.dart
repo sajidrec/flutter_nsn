@@ -48,7 +48,90 @@ class SearchResultElementWidget extends StatelessWidget {
               width: 28.67.w,
             ),
             SizedBox(width: 8.w),
-            SvgPicture.asset(AppAssets.optionIcon, height: 24.h, width: 24.w),
+
+            PopupMenuButton(
+              offset: Offset(-15.w, 70.h),
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              icon: SvgPicture.asset(
+                AppAssets.optionIcon,
+                height: 24.h,
+                width: 24.w,
+              ),
+              onSelected: (value) {
+                print("menu selected item: $value");
+              },
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 'new bounties',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SvgPicture.asset(
+                        AppAssets.new_bounties_icon,
+                        width: 32.w,
+                        height: 32.h,
+                      ),
+                      SizedBox(width: 8.w),
+                      Text(
+                        "New Bounties",
+                        style: GoogleFonts.inter(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.blackText,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'select multiple',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SvgPicture.asset(
+                        AppAssets.select_multiple_icon,
+                        width: 32.w,
+                        height: 32.h,
+                      ),
+                      SizedBox(width: 8.w),
+                      Text(
+                        "Select Multiple",
+                        style: GoogleFonts.inter(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.blackText,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'add my list',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SvgPicture.asset(
+                        AppAssets.add_to_my_list_icon,
+                        width: 32.w,
+                        height: 32.h,
+                      ),
+                      SizedBox(width: 8.w),
+                      Text(
+                        "Add My List",
+                        style: GoogleFonts.inter(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.blackText,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
         SizedBox(height: 20.h),
