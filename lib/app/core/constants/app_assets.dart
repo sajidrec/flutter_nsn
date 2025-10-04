@@ -23,4 +23,7 @@ class AppAssets {
   static const String searchButton = "assets/icons/search_button.svg";
   static const String rewardIcon = "assets/icons/reward_icon.svg";
   static const String addButtonImg = "assets/images/add_items_button.svg";
+  static const String filterIcon = "assets/icons/filter_icon.svg";
+  static const String imageIcon = "assets/icons/image_icon.svg";
+  static const String optionIcon = "assets/icons/option_icon.svg";
 }

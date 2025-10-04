@@ -110,17 +110,24 @@ class _HomePageState extends State<HomePage> {
 
                     SizedBox(height: 16.h),
 
-                    SvgPicture.asset(
-                      AppAssets.addButtonImg,
-                      width: double.infinity,
-                      height: 48.h,
-                    ),
+                    _buildAddItems(onTap: () {}),
                   ],
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  InkWell _buildAddItems({required VoidCallback onTap}) {
+    return InkWell(
+      onTap: onTap,
+      child: SvgPicture.asset(
+        AppAssets.addButtonImg,
+        width: double.infinity,
+        height: 48.h,
       ),
     );
   }
