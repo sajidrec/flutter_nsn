@@ -31,4 +31,9 @@ class AppAssets {
   static const String new_bounties_icon = "assets/icons/new_bounties_icon.svg";
   static const String select_multiple_icon =
       "assets/icons/select_multiple_icon.svg";
+  static const String short_and_filter_text =
+      "assets/images/short_and_filter_text.svg";
+
+  static const String up_down_arrow_icon =
+      "assets/icons/up_down_arrow_icon.svg";
 }

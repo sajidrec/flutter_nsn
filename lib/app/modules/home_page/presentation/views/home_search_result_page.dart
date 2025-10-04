@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/modules/home_page/presentation/controllers/home_search_result_page_controller.dart';
 import 'package:nsn/app/modules/home_page/presentation/widgets/home_search_text_field_widget.dart';
 
@@ -10,14 +11,75 @@ import '../../../../core/constants/app_colors.dart';
 import '../widgets/search_result_element_widget.dart';
 
 class HomeSearchResultPage extends StatelessWidget {
-  const HomeSearchResultPage({super.key, required this.searchKeyword});
+  HomeSearchResultPage({super.key, required this.searchKeyword});
 
   final String searchKeyword;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: scaffoldKey,
+        endDrawer: SizedBox(
+          width: 325.w,
+          child: Drawer(
+            backgroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.r),
+                bottomLeft: Radius.circular(16.r),
+              ),
+            ),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(16.sp),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SvgPicture.asset(
+                        AppAssets.short_and_filter_text,
+                        width: 132.w,
+                        height: 32.h,
+                      ),
+                      SizedBox(height: 20.h),
+                      Divider(color: AppColors.dividerColor),
+                      SizedBox(height: 16.h),
+                      Text(
+                        "Short by:",
+                        style: GoogleFonts.inter(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+
+                      SizedBox(height: 12.h),
+
+                      Wrap(
+                        children: [
+                          _buildShortByTagElement(tagName: 'Model'),
+                          SizedBox(width: 8),
+                          _buildShortByTagElement(tagName: 'niin/mcn'),
+                          SizedBox(width: 8),
+                          _buildShortByTagElement(tagName: 'LIN'),
+                          SizedBox(width: 8),
+                          _buildShortByTagElement(tagName: 'NSN'),
+                          SizedBox(width: 8),
+                          _buildShortByTagElement(tagName: 'Manual'),
+                          SizedBox(width: 8),
+                          _buildShortByTagElement(tagName: 'EIC'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
         body: Stack(
           children: [
             Container(
@@ -43,6 +105,7 @@ class HomeSearchResultPage extends StatelessWidget {
                         iconPath: AppAssets.filterIcon,
                         hintText: "Search by NSN, NIIN, LIN, EIC etc",
                         isPasswordTextField: false,
+                        scaffoldKey: scaffoldKey,
                       );
                     },
                   ),
@@ -86,6 +149,24 @@ class HomeSearchResultPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Chip _buildShortByTagElement({required String tagName}) {
+    return Chip(
+      backgroundColor: Colors.white,
+      label: Row(
+        mainAxisSize: MainAxisSize.min, // important!
+        children: [
+          SvgPicture.asset(
+            AppAssets.up_down_arrow_icon,
+            height: 20.h,
+            width: 20.w,
+          ),
+          SizedBox(width: 4.w),
+          Text(tagName, style: TextStyle(color: AppColors.hintTextColor)),
+        ],
       ),
     );
   }

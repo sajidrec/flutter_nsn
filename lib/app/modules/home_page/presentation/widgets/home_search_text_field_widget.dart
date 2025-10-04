@@ -12,12 +12,14 @@ class HomeSearchTextFieldWidget extends StatefulWidget {
     required this.iconPath,
     required this.hintText,
     required this.isPasswordTextField,
+    required this.scaffoldKey,
   });
 
   final TextEditingController tec;
   final String iconPath;
   final String hintText;
   final bool isPasswordTextField;
+  final scaffoldKey;
 
   @override
   State<HomeSearchTextFieldWidget> createState() =>
@@ -34,11 +36,16 @@ class _HomeSearchTextFieldWidgetState extends State<HomeSearchTextFieldWidget> {
       obscureText: hidePassword,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 15.h),
-        suffixIcon: SvgPicture.asset(
-          widget.iconPath,
-          width: 24.w,
-          height: 24.h,
-          fit: BoxFit.scaleDown,
+        suffixIcon: InkWell(
+          onTap: () {
+            widget.scaffoldKey.currentState!.openEndDrawer();
+          },
+          child: SvgPicture.asset(
+            widget.iconPath,
+            width: 24.w,
+            height: 24.h,
+            fit: BoxFit.scaleDown,
+          ),
         ),
         hintText: widget.hintText,
         hintStyle: GoogleFonts.inter(
