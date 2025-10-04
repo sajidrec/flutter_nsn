@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
 import 'package:nsn/app/modules/home_page/presentation/controllers/home_search_result_page_controller.dart';
 import 'package:nsn/app/modules/home_page/presentation/widgets/home_search_text_field_widget.dart';
 
@@ -71,6 +72,79 @@ class HomeSearchResultPage extends StatelessWidget {
                           SizedBox(width: 8),
                           _buildShortByTagElement(tagName: 'EIC'),
                         ],
+                      ),
+
+                      SizedBox(height: 24.h),
+
+                      Text(
+                        "Filter by:",
+                        style: GoogleFonts.inter(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+
+                      SizedBox(height: 8.h),
+
+                      GetBuilder<HomeSearchResultPageController>(
+                        builder: (controller) {
+                          return Column(
+                            children: [
+                              _buildFilterByTextField(
+                                title: "niin/mcn",
+                                hintText: "Filter by NIIN/MCN",
+                                tec: controller.niinMcnTec,
+                              ),
+
+                              SizedBox(height: 8.h),
+
+                              _buildFilterByTextField(
+                                title: "Model",
+                                hintText: "Filter by Model",
+                                tec: controller.modelNoTec,
+                              ),
+
+                              SizedBox(height: 8.h),
+
+                              _buildFilterByTextField(
+                                title: "NSN",
+                                hintText: "Filter by NSN",
+                                tec: controller.nsnTec,
+                              ),
+
+                              SizedBox(height: 8.h),
+
+                              _buildFilterByTextField(
+                                title: "LIN",
+                                hintText: "Filter by LIN",
+                                tec: controller.linTec,
+                              ),
+
+                              SizedBox(height: 8.h),
+
+                              _buildFilterByTextField(
+                                title: "EIC",
+                                hintText: "Filter by EIC",
+                                tec: controller.eicTec,
+                              ),
+
+                              SizedBox(height: 8.h),
+
+                              _buildFilterByTextField(
+                                title: "Manual",
+                                hintText: "Filter by Manual",
+                                tec: controller.manualTec,
+                              ),
+
+                              SizedBox(height: 8.h),
+                              GreenButtonFullSizedWidget(
+                                buttonText: "Filter",
+                                callbackFunction: () {},
+                              ),
+                              SizedBox(height: 8.h),
+                            ],
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -149,6 +223,38 @@ class HomeSearchResultPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Padding _buildFilterByTextField({
+    required String title,
+    required String hintText,
+    required TextEditingController tec,
+  }) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 4.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title.toUpperCase(),
+            style: TextStyle(color: AppColors.semiBlackTextColor),
+          ),
+          TextField(
+            controller: tec,
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyle(color: AppColors.checkboxColor),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              filled: true,
+              fillColor: AppColors.bgWhite,
+            ),
+          ),
+        ],
       ),
     );
   }
