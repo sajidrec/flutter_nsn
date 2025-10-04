@@ -21,4 +21,6 @@ class AppAssets {
       "assets/icons/my_profile_filled_icon.svg";
   static const String searchIcon = "assets/icons/search_icon.svg";
   static const String searchButton = "assets/icons/search_button.svg";
+  static const String rewardIcon = "assets/icons/reward_icon.svg";
+  static const String addButtonImg = "assets/images/add_items_button.svg";
 }
