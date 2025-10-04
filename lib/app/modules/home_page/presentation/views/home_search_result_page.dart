@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/modules/home_page/presentation/controllers/home_search_result_page_controller.dart';
 import 'package:nsn/app/modules/home_page/presentation/widgets/home_search_text_field_widget.dart';
 
