@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/core/constants/app_colors.dart';
 import 'package:nsn/app/global_widgets/text_field_widget.dart';
 
 import '../../../../core/constants/app_assets.dart';
+import '../../../../routes/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,10 +55,14 @@ class _HomePageState extends State<HomePage> {
                       isPasswordTextField: false,
                     ),
                     SizedBox(height: 16.h),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 48.h,
-                      child: SvgPicture.asset(AppAssets.searchButton),
+
+                    _buildSearchButton(
+                      onTap: () {
+                        Get.toNamed(
+                          AppRoutes.homeSearchResultRoute,
+                          arguments: {'searchKeyword': _searchController.text},
+                        );
+                      },
                     ),
 
                     SizedBox(height: 41.h),
@@ -115,6 +121,17 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  InkWell _buildSearchButton({required VoidCallback? onTap}) {
+    return InkWell(
+      onTap: onTap,
+      child: SizedBox(
+        width: double.infinity,
+        height: 48.h,
+        child: SvgPicture.asset(AppAssets.searchButton),
       ),
     );
   }

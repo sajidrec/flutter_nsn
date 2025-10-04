@@ -8,4 +8,5 @@ abstract class AppRoutes {
   static const String resetPassRoute = '/resetPassRoute';
   static const String bottomNavbarRoute = '/bottomNavbarRoute';
   static const String homeRoute = '/homeRoute';
+  static const String homeSearchResultRoute = '/homeSearchResultRoute';
 }
