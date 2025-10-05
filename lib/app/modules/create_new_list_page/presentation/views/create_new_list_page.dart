@@ -27,8 +27,10 @@ class CreateNewListPage extends StatelessWidget {
                   SizedBox(
                     width: 169.5.w,
                     child: GrayButtonFullSizedWidget(
-                      buttonText: "Cancle",
-                      callbackFunction: () {},
+                      buttonText: "Cancel",
+                      callbackFunction: () {
+                        Get.back();
+                      },
                     ),
                   ),
                   SizedBox(width: 12.w),

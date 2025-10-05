@@ -244,7 +244,7 @@ class HomeSearchResultPage extends StatelessWidget {
                     SizedBox(
                       width: 162.w,
                       child: GrayButtonFullSizedWidget(
-                        buttonText: "Cancle",
+                        buttonText: "Cancel",
                         callbackFunction: () {
                           controller.toggleSelectMultipleMode();
                         },
