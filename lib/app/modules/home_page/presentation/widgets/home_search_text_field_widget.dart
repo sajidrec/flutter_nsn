@@ -19,7 +19,7 @@ class HomeSearchTextFieldWidget extends StatefulWidget {
   final String iconPath;
   final String hintText;
   final bool isPasswordTextField;
-  final scaffoldKey;
+  final dynamic scaffoldKey;
 
   @override
   State<HomeSearchTextFieldWidget> createState() =>

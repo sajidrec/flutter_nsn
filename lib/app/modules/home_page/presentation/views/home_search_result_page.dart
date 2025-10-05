@@ -44,7 +44,7 @@ class HomeSearchResultPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SvgPicture.asset(
-                        AppAssets.short_and_filter_text,
+                        AppAssets.shortAndFilterText,
                         width: 132.w,
                         height: 32.h,
                       ),
@@ -451,7 +451,7 @@ class HomeSearchResultPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min, // important!
         children: [
           SvgPicture.asset(
-            AppAssets.up_down_arrow_icon,
+            AppAssets.upDownArrowIcon,
             height: 20.h,
             width: 20.w,
           ),

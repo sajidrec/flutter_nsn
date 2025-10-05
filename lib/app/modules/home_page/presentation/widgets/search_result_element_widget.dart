@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -86,7 +88,7 @@ class SearchResultElementWidget extends StatelessWidget {
                               width: 24.w,
                             ),
                             onSelected: (value) {
-                              print("menu selected item: $value");
+                              log("menu selected item: $value");
 
                               if (value == 'select multiple') {
                                 controller.toggleSelectMultipleMode();
@@ -101,7 +103,7 @@ class SearchResultElementWidget extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SvgPicture.asset(
-                                      AppAssets.new_bounties_icon,
+                                      AppAssets.newBountiesIcon,
                                       width: 32.w,
                                       height: 32.h,
                                     ),
@@ -123,7 +125,7 @@ class SearchResultElementWidget extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SvgPicture.asset(
-                                      AppAssets.select_multiple_icon,
+                                      AppAssets.selectMultipleIcon,
                                       width: 32.w,
                                       height: 32.h,
                                     ),
@@ -145,7 +147,7 @@ class SearchResultElementWidget extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SvgPicture.asset(
-                                      AppAssets.add_to_my_list_icon,
+                                      AppAssets.addToMyListIcon,
                                       width: 32.w,
                                       height: 32.h,
                                     ),

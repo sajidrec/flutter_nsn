@@ -102,7 +102,7 @@ class CreateNewListPage extends StatelessWidget {
                 Get.back();
               },
               child: SvgPicture.asset(
-                AppAssets.back_arrow_rounded_icon,
+                AppAssets.backArrowInsideRoundedBoxIcon,
                 width: 32.w,
                 height: 32.h,
               ),

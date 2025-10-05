@@ -26,19 +26,17 @@ class AppAssets {
   static const String filterIcon = "assets/icons/filter_icon.svg";
   static const String imageIcon = "assets/icons/image_icon.svg";
   static const String optionIcon = "assets/icons/option_icon.svg";
-  static const String add_to_my_list_icon =
-      "assets/icons/add_to_my_list_icon.svg";
-  static const String new_bounties_icon = "assets/icons/new_bounties_icon.svg";
-  static const String select_multiple_icon =
+  static const String addToMyListIcon = "assets/icons/add_to_my_list_icon.svg";
+  static const String newBountiesIcon = "assets/icons/new_bounties_icon.svg";
+  static const String selectMultipleIcon =
       "assets/icons/select_multiple_icon.svg";
-  static const String short_and_filter_text =
+  static const String shortAndFilterText =
       "assets/images/short_and_filter_text.svg";
 
-  static const String up_down_arrow_icon =
-      "assets/icons/up_down_arrow_icon.svg";
+  static const String upDownArrowIcon = "assets/icons/up_down_arrow_icon.svg";
 
-  static const String back_arrow_rounded_icon =
+  static const String backArrowInsideRoundedBoxIcon =
       "assets/icons/back_arrow_rounded_icon.svg";
 
-  static const String add_image_image = "assets/images/add_image_image.svg";
+  static const String addImgImage = "assets/images/add_image_image.svg";
 }

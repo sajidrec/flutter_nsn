@@ -106,7 +106,7 @@ class AddToListPage extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: SvgPicture.asset(
-        AppAssets.add_image_image,
+        AppAssets.addImgImage,
         width: 350.w,
         height: 128.h,
       ),
@@ -149,7 +149,7 @@ class AddToListPage extends StatelessWidget {
                 Get.back();
               },
               child: SvgPicture.asset(
-                AppAssets.back_arrow_rounded_icon,
+                AppAssets.backArrowInsideRoundedBoxIcon,
                 width: 32.w,
                 height: 32.h,
               ),
