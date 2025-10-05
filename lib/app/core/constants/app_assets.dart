@@ -39,4 +39,5 @@ class AppAssets {
       "assets/icons/back_arrow_rounded_icon.svg";
 
   static const String addImgImage = "assets/images/add_image_image.svg";
+  static const String celebrateIcon = "assets/icons/celebrate_icon.svg";
 }
