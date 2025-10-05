@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nsn/app/global_widgets/gray_button_full_sized_widget.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
 import 'package:nsn/app/modules/home_page/presentation/controllers/home_search_result_page_controller.dart';
 import 'package:nsn/app/modules/home_page/presentation/widgets/home_search_text_field_widget.dart';
@@ -21,6 +22,39 @@ class HomeSearchResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+          child: GetBuilder<HomeSearchResultPageController>(
+            builder: (controller) {
+              return !controller.selectMultipleMode
+                  ? SizedBox.shrink()
+                  : Row(
+                      children: [
+                        SizedBox(width: 8.w),
+                        SizedBox(
+                          width: 162.w,
+                          child: GrayButtonFullSizedWidget(
+                            buttonText: "Cancle",
+                            callbackFunction: () {
+                              controller.toggleSelectMultipleMode();
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 8.w),
+                        SizedBox(
+                          width: 162.w,
+                          child: GreenButtonFullSizedWidget(
+                            buttonText: "Add List",
+                            callbackFunction: controller.totalSelectedItems == 0
+                                ? null
+                                : () {},
+                          ),
+                        ),
+                      ],
+                    );
+            },
+          ),
+        ),
         key: scaffoldKey,
         endDrawer: SizedBox(
           width: 325.w,
@@ -209,6 +243,7 @@ class HomeSearchResultPage extends StatelessWidget {
                               lin: '013469317',
                               eic: '013469317',
                               manualNo: '013469317',
+                              elementId: index,
                             ),
                           ),
                         ),
