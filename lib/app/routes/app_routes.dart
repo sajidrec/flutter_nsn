@@ -10,4 +10,5 @@ abstract class AppRoutes {
   static const String homeRoute = '/homeRoute';
   static const String homeSearchResultRoute = '/homeSearchResultRoute';
   static const String craeteNewListRoute = '/craeteNewListRoute';
+  static const String addToListRoute = '/addToListRoute';
 }

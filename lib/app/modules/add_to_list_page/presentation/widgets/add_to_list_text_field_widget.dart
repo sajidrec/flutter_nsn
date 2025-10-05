@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
-class CreateNewListTextFieldWidget extends StatefulWidget {
-  const CreateNewListTextFieldWidget({
+class AddToListTextFieldWidget extends StatefulWidget {
+  const AddToListTextFieldWidget({
     super.key,
     required this.tec,
     required this.iconPath,
@@ -19,12 +19,11 @@ class CreateNewListTextFieldWidget extends StatefulWidget {
   final bool isPasswordTextField;
 
   @override
-  State<CreateNewListTextFieldWidget> createState() =>
-      _CreateNewListTextFieldWidgetState();
+  State<AddToListTextFieldWidget> createState() =>
+      _AddToListTextFieldWidgetState();
 }
 
-class _CreateNewListTextFieldWidgetState
-    extends State<CreateNewListTextFieldWidget> {
+class _AddToListTextFieldWidgetState extends State<AddToListTextFieldWidget> {
   bool hidePassword = false;
 
   @override

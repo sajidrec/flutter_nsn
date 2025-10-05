@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/modules/home_page/presentation/controllers/home_search_result_page_controller.dart';
+import 'package:nsn/app/routes/app_routes.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -89,6 +90,8 @@ class SearchResultElementWidget extends StatelessWidget {
 
                               if (value == 'select multiple') {
                                 controller.toggleSelectMultipleMode();
+                              } else if (value == 'add my list') {
+                                Get.toNamed(AppRoutes.addToListRoute);
                               }
                             },
                             itemBuilder: (context) => [
