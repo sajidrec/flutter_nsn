@@ -43,12 +43,7 @@ class HomeSearchResultPage extends StatelessWidget {
                         SizedBox(width: 8.w),
                         SizedBox(
                           width: 162.w,
-                          child: GreenButtonFullSizedWidget(
-                            buttonText: "Add List",
-                            callbackFunction: controller.totalSelectedItems == 0
-                                ? null
-                                : () {},
-                          ),
+                          child: _buildAddToListButton(controller, context),
                         ),
                       ],
                     );
@@ -259,6 +254,154 @@ class HomeSearchResultPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  GreenButtonFullSizedWidget _buildAddToListButton(
+    HomeSearchResultPageController controller,
+    BuildContext context,
+  ) {
+    return GreenButtonFullSizedWidget(
+      buttonText: "Add List",
+      callbackFunction: controller.totalSelectedSearchElements == 0
+          ? null
+          : () async {
+              await showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return GetBuilder<HomeSearchResultPageController>(
+                    builder: (controller) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(16.r),
+                            topRight: Radius.circular(16.r),
+                          ),
+                        ),
+                        width: double.infinity,
+                        child: Padding(
+                          padding: EdgeInsets.all(12.sp),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: Text(
+                                  "Create New",
+                                  style: TextStyle(
+                                    color: AppColors.greenButtonBG,
+                                    fontSize: 16.sp,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 24.h),
+                              Column(
+                                children: [
+                                  SizedBox(
+                                    height: Get.height / 3,
+                                    child: ListView.separated(
+                                      shrinkWrap: true,
+                                      itemBuilder: (context, index) => Row(
+                                        children: [
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: AppColors.semiGray,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.r),
+                                            ),
+                                            height: 35.h,
+                                            width: 35.w,
+                                          ),
+                                          SizedBox(width: 12.w),
+                                          Text(
+                                            "My List $index",
+                                            style: TextStyle(
+                                              color: AppColors.blackText,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 16.sp,
+                                            ),
+                                          ),
+                                          Spacer(),
+                                          Checkbox(
+                                            value:
+                                                controller
+                                                    .myListCheckedList[index] ??
+                                                false,
+                                            side: BorderSide(
+                                              color: AppColors.checkboxColor,
+                                            ),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(4.r),
+                                            ),
+                                            checkColor: AppColors.bgWhite,
+                                            fillColor:
+                                                (controller
+                                                        .myListCheckedList[index] ??
+                                                    false)
+                                                ? WidgetStatePropertyAll(
+                                                    AppColors.greenButtonBG,
+                                                  )
+                                                : null,
+                                            onChanged: (value) {
+                                              controller.toogleMyListChecked(
+                                                index,
+                                              );
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                      separatorBuilder: (context, index) =>
+                                          SizedBox(height: 24.h),
+                                      itemCount: 30,
+                                    ),
+                                  ),
+
+                                  SizedBox(height: 12.h),
+
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 165.w,
+                                        height: 48.h,
+                                        child: GrayButtonFullSizedWidget(
+                                          buttonText: "Cancle",
+                                          callbackFunction: () {
+                                            if (context.mounted) {
+                                              Get.back();
+                                            }
+                                          },
+                                        ),
+                                      ),
+                                      SizedBox(width: 12.w),
+                                      SizedBox(
+                                        width: 165.w,
+                                        height: 48.h,
+                                        child: GreenButtonFullSizedWidget(
+                                          buttonText: "Add List",
+                                          callbackFunction:
+                                              controller
+                                                      .totalSelectedListElements ==
+                                                  0
+                                              ? null
+                                              : () {},
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              );
+            },
     );
   }
 

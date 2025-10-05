@@ -11,20 +11,35 @@ class HomeSearchResultPageController extends GetxController {
   final eicTec = TextEditingController();
   final manualTec = TextEditingController();
 
-  int totalSelectedItems = 0;
+  Map<String, bool> myListSelected = {};
+
+  int totalSelectedSearchElements = 0;
+  int totalSelectedListElements = 0;
 
   bool selectMultipleMode = false;
 
   Map<int, bool> itemCheckedList = {};
+  Map<int, bool> myListCheckedList = {};
 
   void toggleItemChecked(int index) {
     if (itemCheckedList[index] ?? false) {
-      totalSelectedItems--;
+      totalSelectedSearchElements--;
     } else {
-      totalSelectedItems++;
+      totalSelectedSearchElements++;
     }
 
     itemCheckedList[index] = !(itemCheckedList[index] ?? false);
+
+    update();
+  }
+
+  void toogleMyListChecked(int myListId) {
+    if (myListCheckedList[myListId] ?? false) {
+      totalSelectedListElements--;
+    } else {
+      totalSelectedListElements++;
+    }
+    myListCheckedList[myListId] = !(myListCheckedList[myListId] ?? false);
 
     update();
   }
@@ -40,11 +55,12 @@ class HomeSearchResultPageController extends GetxController {
 
     searchTec.text = Get.arguments['searchKeyword'];
 
-    totalSelectedItems = 0;
+    totalSelectedSearchElements = 0;
+    totalSelectedListElements = 0;
 
     itemCheckedList.forEach((key, value) {
       if (value) {
-        totalSelectedItems++;
+        totalSelectedSearchElements++;
       }
     });
 

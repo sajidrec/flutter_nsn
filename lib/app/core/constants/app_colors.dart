@@ -14,4 +14,5 @@ class AppColors {
   static const Color pinputBorderGreen = Color(0xff196843);
   static const Color lightGreenBg = Color(0xffE8EEEA);
   static const Color dividerColor = Color(0xffE1E1E1);
+  static const Color semiGray = Color(0xffD9D9D9);
 }
