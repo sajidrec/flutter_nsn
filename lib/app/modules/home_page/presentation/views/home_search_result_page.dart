@@ -43,10 +43,15 @@ class HomeSearchResultPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SvgPicture.asset(
-                        AppAssets.shortAndFilterText,
-                        width: 132.w,
-                        height: 32.h,
+                      InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: SvgPicture.asset(
+                          AppAssets.shortAndFilterText,
+                          width: 132.w,
+                          height: 32.h,
+                        ),
                       ),
                       SizedBox(height: 20.h),
                       Divider(color: AppColors.dividerColor),

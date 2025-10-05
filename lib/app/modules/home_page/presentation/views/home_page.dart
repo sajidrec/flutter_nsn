@@ -110,7 +110,11 @@ class _HomePageState extends State<HomePage> {
 
                     SizedBox(height: 16.h),
 
-                    _buildAddItems(onTap: () {}),
+                    _buildAddItems(
+                      onTap: () {
+                        Get.toNamed(AppRoutes.addToListRoute);
+                      },
+                    ),
                   ],
                 ),
               ),
