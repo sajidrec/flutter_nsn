@@ -36,4 +36,9 @@ class AppAssets {
 
   static const String up_down_arrow_icon =
       "assets/icons/up_down_arrow_icon.svg";
+
+  static const String back_arrow_rounded_icon =
+      "assets/icons/back_arrow_rounded_icon.svg";
+
+
 }

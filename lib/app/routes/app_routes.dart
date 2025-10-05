@@ -9,4 +9,5 @@ abstract class AppRoutes {
   static const String bottomNavbarRoute = '/bottomNavbarRoute';
   static const String homeRoute = '/homeRoute';
   static const String homeSearchResultRoute = '/homeSearchResultRoute';
+  static const String craeteNewListRoute = '/craeteNewListRoute';
 }

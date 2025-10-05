@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:nsn/app/modules/bottom_navbar/presentation/binding/bottom_navbar_binding.dart';
 import 'package:nsn/app/modules/bottom_navbar/presentation/views/bottom_navbar.dart';
+import 'package:nsn/app/modules/create_new_list_page/presentation/views/create_new_list_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_search_result_page.dart';
 import '../modules/auth/forget_password_page/binding/forget_password_binding.dart';
@@ -15,6 +16,7 @@ import '../modules/auth/signup_page/presentation/views/welcome_signup_page.dart'
 import '../modules/auth/splash_page/presentation/views/splash_page.dart';
 import '../modules/auth/verification_code_page/presentation/binding/verification_code_page_binding.dart';
 import '../modules/auth/verification_code_page/presentation/view/verification_code_page.dart';
+import '../modules/create_new_list_page/presentation/binding/create_new_list_page_binding.dart';
 import '../modules/home_page/presentation/binding/home_page_binding.dart';
 import '../modules/home_page/presentation/binding/home_search_result_page_binding.dart';
 import 'app_routes.dart';
@@ -67,6 +69,12 @@ class AppPages {
       page: () =>
           HomeSearchResultPage(searchKeyword: Get.arguments['searchKeyword']),
       binding: HomeSearchResultPageBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.craeteNewListRoute,
+      page: () => CreateNewListPage(),
+      binding: CreateNewListPageBinding(),
     ),
   ];
 }

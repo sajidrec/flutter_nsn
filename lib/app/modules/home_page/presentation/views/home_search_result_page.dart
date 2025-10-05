@@ -7,6 +7,7 @@ import 'package:nsn/app/global_widgets/gray_button_full_sized_widget.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
 import 'package:nsn/app/modules/home_page/presentation/controllers/home_search_result_page_controller.dart';
 import 'package:nsn/app/modules/home_page/presentation/widgets/home_search_text_field_widget.dart';
+import 'package:nsn/app/routes/app_routes.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -22,34 +23,7 @@ class HomeSearchResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-          child: GetBuilder<HomeSearchResultPageController>(
-            builder: (controller) {
-              return !controller.selectMultipleMode
-                  ? SizedBox.shrink()
-                  : Row(
-                      children: [
-                        SizedBox(width: 8.w),
-                        SizedBox(
-                          width: 162.w,
-                          child: GrayButtonFullSizedWidget(
-                            buttonText: "Cancle",
-                            callbackFunction: () {
-                              controller.toggleSelectMultipleMode();
-                            },
-                          ),
-                        ),
-                        SizedBox(width: 8.w),
-                        SizedBox(
-                          width: 162.w,
-                          child: _buildAddToListButton(controller, context),
-                        ),
-                      ],
-                    );
-            },
-          ),
-        ),
+        bottomNavigationBar: _buildBottomNavBar(context),
         key: scaffoldKey,
         endDrawer: SizedBox(
           width: 325.w,
@@ -257,6 +231,37 @@ class HomeSearchResultPage extends StatelessWidget {
     );
   }
 
+  Padding _buildBottomNavBar(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+      child: GetBuilder<HomeSearchResultPageController>(
+        builder: (controller) {
+          return !controller.selectMultipleMode
+              ? SizedBox.shrink()
+              : Row(
+                  children: [
+                    SizedBox(width: 8.w),
+                    SizedBox(
+                      width: 162.w,
+                      child: GrayButtonFullSizedWidget(
+                        buttonText: "Cancle",
+                        callbackFunction: () {
+                          controller.toggleSelectMultipleMode();
+                        },
+                      ),
+                    ),
+                    SizedBox(width: 8.w),
+                    SizedBox(
+                      width: 162.w,
+                      child: _buildAddToListButton(controller, context),
+                    ),
+                  ],
+                );
+        },
+      ),
+    );
+  }
+
   GreenButtonFullSizedWidget _buildAddToListButton(
     HomeSearchResultPageController controller,
     BuildContext context,
@@ -287,7 +292,9 @@ class HomeSearchResultPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(AppRoutes.craeteNewListRoute);
+                                },
                                 child: Text(
                                   "Create New",
                                   style: TextStyle(
