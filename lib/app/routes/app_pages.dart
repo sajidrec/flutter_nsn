@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:nsn/app/modules/add_to_list_page/presentation/binding/add_to_list_page_binding.dart';
 import 'package:nsn/app/modules/bottom_navbar/presentation/binding/bottom_navbar_binding.dart';
 import 'package:nsn/app/modules/bottom_navbar/presentation/views/bottom_navbar.dart';
+import 'package:nsn/app/modules/bounties_page/presentation/binding/bounties_page_binding.dart';
+import 'package:nsn/app/modules/bounties_page/presentation/views/bounties_page.dart';
 import 'package:nsn/app/modules/create_new_list_page/presentation/views/create_new_list_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_search_result_page.dart';
@@ -82,6 +84,11 @@ class AppPages {
       name: AppRoutes.addToListRoute,
       page: () => AddToListPage(),
       binding: AddToListPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.bountiesRoute,
+      page: () => BountiesPage(),
+      binding: BountiesPageBinding(),
     ),
   ];
 }
