@@ -23,7 +23,7 @@ class BountiesPage extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 212.h,
+                      height: 220.h,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(12.r),
@@ -47,8 +47,9 @@ class BountiesPage extends StatelessWidget {
                           ),
                           SizedBox(height: 12.h),
 
-                          // TODO: finish work from here next working day
+                          // TODO: work from here
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text("How to Earn "),
                               GestureDetector(
