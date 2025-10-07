@@ -47,7 +47,7 @@ class BountiesPage extends StatelessWidget {
                           ),
                           SizedBox(height: 12.h),
 
-                          // TODO: work from here
+                          // TODO: resume work from here
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
