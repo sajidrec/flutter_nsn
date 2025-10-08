@@ -20,6 +20,8 @@ class BountiesPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12.w),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       width: double.infinity,
@@ -64,12 +66,105 @@ class BountiesPage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(height: 31.h),
+                    Text(
+                      "Spend Your Bounties",
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(height: 12.h),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      primary: false,
+                      itemBuilder: (context, index) => Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16.r),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(4.sp),
+                          child: Row(
+                            children: [
+                              Chip(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.r),
+                                ),
+                                backgroundColor: Colors.white,
+                                label: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "15",
+                                      style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.greenButtonBG,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Bounties",
+                                      style: TextStyle(
+                                        color: AppColors.checkboxColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 12.w),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Remove ads for",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.blackText,
+                                    ),
+                                  ),
+                                  Chip(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.r),
+                                    ),
+                                    label: Text(
+                                      "1 month",
+                                      style: TextStyle(
+                                        color: AppColors.semiBlackTextColor,
+                                      ),
+                                    ),
+                                    backgroundColor: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              Spacer(),
+                              _buildSpendNowButton(),
+                            ],
+                          ),
+                        ),
+                      ),
+                      separatorBuilder: (context, index) =>
+                          SizedBox(height: 12.h),
+                      itemCount: 30,
+                    ),
                   ],
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  InkWell _buildSpendNowButton() {
+    return InkWell(
+      onTap: () {},
+      child: SvgPicture.asset(
+        AppAssets.spend_now_button,
+        width: 66.w,
+        height: 54.h,
       ),
     );
   }

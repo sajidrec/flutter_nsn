@@ -40,4 +40,5 @@ class AppAssets {
 
   static const String addImgImage = "assets/images/add_image_image.svg";
   static const String celebrateIcon = "assets/icons/celebrate_icon.svg";
+  static const String spend_now_button = "assets/images/spend_now_button.svg";
 }
