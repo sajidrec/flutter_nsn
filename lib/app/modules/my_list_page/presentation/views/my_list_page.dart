@@ -55,7 +55,7 @@ class MyListPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16.r),
                   ),
                   width: 375.w,
-                  height: 268.h,
+                  height: 275.h,
                   child: Padding(
                     padding: EdgeInsets.all(12.sp),
                     child: Column(
