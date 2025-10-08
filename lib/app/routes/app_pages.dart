@@ -4,6 +4,7 @@ import 'package:nsn/app/modules/bottom_navbar/presentation/binding/bottom_navbar
 import 'package:nsn/app/modules/bottom_navbar/presentation/views/bottom_navbar.dart';
 import 'package:nsn/app/modules/bounties_page/presentation/binding/bounties_page_binding.dart';
 import 'package:nsn/app/modules/bounties_page/presentation/views/bounties_page.dart';
+import 'package:nsn/app/modules/bounties_page/presentation/views/earn_bounty_tip_page.dart';
 import 'package:nsn/app/modules/create_new_list_page/presentation/views/create_new_list_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_search_result_page.dart';
@@ -103,6 +104,10 @@ class AppPages {
       name: AppRoutes.shareListRoute,
       page: () => ShareListPage(),
       binding: ShareListPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.earnBountyTipRoute,
+      page: () => EarnBountyTipPage(),
     ),
   ];
 }

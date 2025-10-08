@@ -26,7 +26,9 @@ class ShareListPage extends StatelessWidget {
                 width: 165.w,
                 child: GrayButtonFullSizedWidget(
                   buttonText: "Cancle",
-                  callbackFunction: () {},
+                  callbackFunction: () {
+                    Get.back();
+                  },
                 ),
               ),
               Spacer(),

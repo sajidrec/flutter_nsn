@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
+import 'package:get/get.dart';
+import 'package:nsn/app/routes/app_routes.dart';
 
 import '../../../../core/constants/app_colors.dart';
+import '../../../../global_widgets/green_button_full_sized_widget.dart';
 
 class BountiesPage extends StatelessWidget {
   const BountiesPage({super.key});
@@ -160,7 +164,80 @@ class BountiesPage extends StatelessWidget {
 
   InkWell _buildSpendNowButton() {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.dialog(
+          Material(
+            color: Colors.transparent,
+            child: Center(
+              child: Container(
+                width: 351.w,
+                height: 287.h,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Spacer(),
+                        IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: Icon(Icons.close),
+                        ),
+                      ],
+                    ),
+                    Center(
+                      child: SvgPicture.asset(
+                        AppAssets.celebrateIcon,
+                        width: 80.w,
+                        height: 80.h,
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Center(
+                      child: Text(
+                        "Congratulations",
+                        style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          "You can now use this app free for 1 month without any Ads.",
+                          style: GoogleFonts.inter(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: AppColors.checkboxColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12.w),
+                      child: GreenButtonFullSizedWidget(
+                        buttonText: "OK",
+                        callbackFunction: () {
+                          Get.back();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
       child: SvgPicture.asset(
         AppAssets.spend_now_button,
         width: 66.w,
@@ -184,7 +261,9 @@ class BountiesPage extends StatelessWidget {
             ),
             Spacer(),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(AppRoutes.earnBountyTipRoute);
+              },
               child: Text(
                 "Earn Bounties",
                 style: TextStyle(
