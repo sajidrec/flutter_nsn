@@ -453,7 +453,7 @@ class HomeSearchResultPage extends StatelessWidget {
     return Chip(
       backgroundColor: Colors.white,
       label: Row(
-        mainAxisSize: MainAxisSize.min, // important!
+        mainAxisSize: MainAxisSize.min,
         children: [
           SvgPicture.asset(
             AppAssets.upDownArrowIcon,

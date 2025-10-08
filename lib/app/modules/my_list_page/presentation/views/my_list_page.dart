@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
 
@@ -67,6 +70,7 @@ class MyListPage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 16.h),
+
                         SizedBox(
                           height: 160.h,
                           child: ListView.separated(
@@ -88,13 +92,98 @@ class MyListPage extends StatelessWidget {
                                   ),
                                 ),
                                 Spacer(),
-                                InkWell(
-                                  onTap: () {},
-                                  child: SvgPicture.asset(
+
+                                PopupMenuButton(
+                                  // offset: Offset(-15.w, 70.h),
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                  ),
+                                  icon: SvgPicture.asset(
                                     AppAssets.optionIcon,
                                     width: 24.w,
                                     height: 24.h,
                                   ),
+                                  onSelected: (value) {
+                                    log("menu selected item: $value");
+
+                                    // if (value == 'select multiple') {
+                                    //   controller.toggleSelectMultipleMode();
+                                    // } else if (value == 'add my list') {
+                                    //   Get.toNamed(AppRoutes.addToListRoute);
+                                    // }
+                                  },
+                                  itemBuilder: (context) => [
+                                    PopupMenuItem(
+                                      value: 'share',
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SvgPicture.asset(
+                                            AppAssets.newBountiesIcon,
+                                            width: 32.w,
+                                            height: 32.h,
+                                          ),
+                                          SizedBox(width: 8.w),
+                                          Text(
+                                            "Share",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.blackText,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    PopupMenuItem(
+                                      value: 'delete',
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SvgPicture.asset(
+                                            AppAssets.selectMultipleIcon,
+                                            width: 32.w,
+                                            height: 32.h,
+                                          ),
+                                          SizedBox(width: 8.w),
+                                          Text(
+                                            "Delete",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.blackText,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    PopupMenuItem(
+                                      value: 'Edit',
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          SvgPicture.asset(
+                                            AppAssets.addToMyListIcon,
+                                            width: 32.w,
+                                            height: 32.h,
+                                          ),
+                                          SizedBox(width: 8.w),
+                                          Text(
+                                            "Edit",
+                                            style: GoogleFonts.inter(
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.blackText,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
