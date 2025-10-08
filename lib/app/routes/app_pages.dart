@@ -9,6 +9,8 @@ import 'package:nsn/app/modules/home_page/presentation/views/home_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_search_result_page.dart';
 import 'package:nsn/app/modules/my_list_page/presentation/binding/my_list_page_binding.dart';
 import 'package:nsn/app/modules/my_list_page/presentation/views/my_list_page.dart';
+import 'package:nsn/app/modules/share_list_page/binding/share_list_page_binding.dart';
+import 'package:nsn/app/modules/share_list_page/views/share_list_page.dart';
 import '../modules/add_to_list_page/presentation/views/add_to_list_page.dart';
 import '../modules/auth/forget_password_page/binding/forget_password_binding.dart';
 import '../modules/auth/forget_password_page/views/forget_password_page.dart';
@@ -96,6 +98,11 @@ class AppPages {
       name: AppRoutes.myListRoute,
       page: () => MyListPage(),
       binding: MyListPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.shareListRoute,
+      page: () => ShareListPage(),
+      binding: ShareListPageBinding(),
     ),
   ];
 }

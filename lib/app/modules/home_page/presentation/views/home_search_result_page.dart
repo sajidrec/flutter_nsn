@@ -166,7 +166,7 @@ class HomeSearchResultPage extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 88.h,
+              // height: 88.h,
               decoration: BoxDecoration(
                 color: AppColors.lightGreenBg,
                 borderRadius: BorderRadius.only(
@@ -202,7 +202,7 @@ class HomeSearchResultPage extends StatelessWidget {
                         // primary: false,
                         itemBuilder: (context, index) => Container(
                           width: 351.w,
-                          height: 248.h,
+                          // height: 248.h,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(12.r),
@@ -323,7 +323,7 @@ class HomeSearchResultPage extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(8.r),
                                             ),
-                                            height: 35.h,
+                                            // height: 35.h,
                                             width: 35.w,
                                           ),
                                           SizedBox(width: 12.w),

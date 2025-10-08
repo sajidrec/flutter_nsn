@@ -6,9 +6,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nsn/app/core/constants/app_assets.dart';
 import 'package:nsn/app/global_widgets/green_button_full_sized_widget.dart';
+import 'package:nsn/app/routes/app_routes.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../global_widgets/gray_button_full_sized_widget.dart';
+
+import 'package:get/get.dart';
 
 class MyListPage extends StatelessWidget {
   const MyListPage({super.key});
@@ -54,8 +57,8 @@ class MyListPage extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16.r),
                   ),
-                  width: 375.w,
-                  height: 275.h,
+                  // width: 375.w,
+                  // height: 275.h,
                   child: Padding(
                     padding: EdgeInsets.all(12.sp),
                     child: Column(
@@ -107,11 +110,9 @@ class MyListPage extends StatelessWidget {
                                   onSelected: (value) {
                                     log("menu selected item: $value");
 
-                                    // if (value == 'select multiple') {
-                                    //   controller.toggleSelectMultipleMode();
-                                    // } else if (value == 'add my list') {
-                                    //   Get.toNamed(AppRoutes.addToListRoute);
-                                    // }
+                                    if (value == "share") {
+                                      Get.toNamed(AppRoutes.shareListRoute);
+                                    }
                                   },
                                   itemBuilder: (context) => [
                                     PopupMenuItem(
@@ -239,7 +240,7 @@ class MyListPage extends StatelessWidget {
   Container _buildCustomAppBar() {
     return Container(
       width: double.infinity,
-      height: 56.h,
+      // height: 56.h,
       decoration: BoxDecoration(color: AppColors.lightGreenBg),
       child: Padding(
         padding: EdgeInsets.all(12.sp),
