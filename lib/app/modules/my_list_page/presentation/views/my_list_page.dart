@@ -121,7 +121,7 @@ class MyListPage extends StatelessWidget {
                                             MainAxisAlignment.start,
                                         children: [
                                           SvgPicture.asset(
-                                            AppAssets.newBountiesIcon,
+                                            AppAssets.share_icon,
                                             width: 32.w,
                                             height: 32.h,
                                           ),
@@ -144,7 +144,7 @@ class MyListPage extends StatelessWidget {
                                             MainAxisAlignment.start,
                                         children: [
                                           SvgPicture.asset(
-                                            AppAssets.selectMultipleIcon,
+                                            AppAssets.delete_icon,
                                             width: 32.w,
                                             height: 32.h,
                                           ),
@@ -161,13 +161,13 @@ class MyListPage extends StatelessWidget {
                                       ),
                                     ),
                                     PopupMenuItem(
-                                      value: 'Edit',
+                                      value: 'edit',
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
                                           SvgPicture.asset(
-                                            AppAssets.addToMyListIcon,
+                                            AppAssets.edit_icon,
                                             width: 32.w,
                                             height: 32.h,
                                           ),

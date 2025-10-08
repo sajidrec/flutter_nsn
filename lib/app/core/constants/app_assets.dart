@@ -42,4 +42,7 @@ class AppAssets {
   static const String celebrateIcon = "assets/icons/celebrate_icon.svg";
   static const String spend_now_button = "assets/images/spend_now_button.svg";
   static const String plus_around_icon = "assets/icons/plus_around_icon.svg";
+  static const String share_icon = "assets/icons/share_icon.svg";
+  static const String delete_icon = "assets/icons/delete_icon.svg";
+  static const String edit_icon = "assets/icons/edit_icon.svg";
 }
