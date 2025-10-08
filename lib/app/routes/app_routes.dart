@@ -15,4 +15,5 @@ abstract class AppRoutes {
   static const String myListRoute = '/myListRoute';
   static const String shareListRoute = '/shareListRoute';
   static const String earnBountyTipRoute = '/earnBountyTipRoute';
+  static const String profileRoute = '/profileRoute';
 }

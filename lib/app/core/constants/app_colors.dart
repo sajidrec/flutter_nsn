@@ -15,4 +15,6 @@ class AppColors {
   static const Color lightGreenBg = Color(0xffE8EEEA);
   static const Color dividerColor = Color(0xffE1E1E1);
   static const Color semiGray = Color(0xffD9D9D9);
+  static const Color textDarker = Color(0xff2A222C);
+  static const Color fadedTextColor = Color(0xff6D5E71);
 }

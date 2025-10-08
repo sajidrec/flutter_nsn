@@ -45,4 +45,7 @@ class AppAssets {
   static const String share_icon = "assets/icons/share_icon.svg";
   static const String delete_icon = "assets/icons/delete_icon.svg";
   static const String edit_icon = "assets/icons/edit_icon.svg";
+  static const String edit_profile_icon = "assets/icons/edit_profile_icon.svg";
+  static const String edit_button_with_txt_icon =
+      "assets/icons/edit_button_with_txt.svg";
 }

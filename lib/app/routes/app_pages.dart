@@ -10,6 +10,8 @@ import 'package:nsn/app/modules/home_page/presentation/views/home_page.dart';
 import 'package:nsn/app/modules/home_page/presentation/views/home_search_result_page.dart';
 import 'package:nsn/app/modules/my_list_page/presentation/binding/my_list_page_binding.dart';
 import 'package:nsn/app/modules/my_list_page/presentation/views/my_list_page.dart';
+import 'package:nsn/app/modules/profile_page/binding/profile_page_binding.dart';
+import 'package:nsn/app/modules/profile_page/views/profile_page.dart';
 import 'package:nsn/app/modules/share_list_page/binding/share_list_page_binding.dart';
 import 'package:nsn/app/modules/share_list_page/views/share_list_page.dart';
 import '../modules/add_to_list_page/presentation/views/add_to_list_page.dart';
@@ -108,6 +110,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.earnBountyTipRoute,
       page: () => EarnBountyTipPage(),
+    ),
+    GetPage(
+      name: AppRoutes.profileRoute,
+      page: () => ProfilePage(),
+      binding: ProfilePageBinding(),
     ),
   ];
 }
